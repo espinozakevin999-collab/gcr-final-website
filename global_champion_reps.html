@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Champion Reps – Next Level Players</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-light: #162B5B;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --blue: #4A9FD4;
+    --blue-light: #B8DDF5;
+    --green: #5BAD8A;
+    --green-light: #A8D5C2;
+    --white: #FFFFFF;
+    --off-white: #F4F8FC;
+    --gray: #E8EDF2;
+    --text-dark: #1A2744;
+    --text-mid: #3D5278;
+    --text-light: #6B82A8;
+    --radius: 18px;
+    --shadow: 0 8px 32px rgba(13,27,62,0.13);
+    --shadow-sm: 0 3px 12px rgba(13,27,62,0.09);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1.5px; }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: var(--navy);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .section-title.white { color: var(--white); }
+  .divider {
+    width: 50px; height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 10px 0 24px 0;
+  }
+  .divider.center { margin: 10px auto 24px auto; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(150deg, var(--navy) 0%, var(--navy-light) 60%, #1A3A6B 100%);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(74,159,212,0.18) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(201,168,76,0.12) 0%, transparent 50%);
+  }
+  .hero-logo-ring {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    background: rgba(255,255,255,0.07);
+    position: relative; z-index: 1;
+    box-shadow: 0 0 40px rgba(201,168,76,0.25);
+  }
+  .logo-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+  .logo-sub {
+    font-size: 9px;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: -6px;
+  }
+  .hero h1 {
+    font-size: 72px;
+    color: var(--white);
+    letter-spacing: 4px;
+    position: relative; z-index: 1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    line-height: 0.9;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-slogan {
+    margin-top: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    position: relative; z-index: 1;
+  }
+  .hero-celebrity {
+    display: inline-block;
+    margin-top: 24px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 30px;
+    padding: 8px 24px;
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative; z-index: 1;
+  }
+  .hero-celebrity span { color: var(--white); margin-left: 6px; }
+  .tennis-ball {
+    position: absolute; right: -20px; top: 30px;
+    width: 100px; height: 100px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #b8e04a, #7ab22e);
+    opacity: 0.15;
+  }
+  .tennis-ball2 {
+    position: absolute; left: -30px; bottom: 20px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #5BB8F5, #2e7ab2);
+    opacity: 0.12;
+  }
+
+  /* ── CONTACT BAR ── */
+  .contact-bar {
+    background: var(--white);
+    padding: 20px 40px;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; align-items: center;
+    border-bottom: 3px solid var(--gold);
+    box-shadow: var(--shadow-sm);
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-mid); font-weight: 600;
+  }
+  .contact-icon {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .contact-divider { width: 1px; height: 24px; background: var(--gray); }
+
+  /* ── GENERIC SECTION ── */
+  .section { padding: 50px 40px; }
+  .section.dark {
+    background: var(--navy);
+  }
+  .section.light-blue {
+    background: var(--blue-light);
+  }
+  .section.white { background: var(--white); }
+  .section.alt { background: var(--gray); }
+
+  /* ── CLIENTS ── */
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .client-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--gold);
+    transition: transform 0.2s;
+  }
+  .client-card:hover { transform: translateY(-3px); }
+  .client-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--navy);
+    color: var(--gold); font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .client-card h4 { font-size: 13px; font-weight: 700; color: var(--navy); font-family: 'Raleway', sans-serif; }
+  .client-card p { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .team-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    border-top: 4px solid var(--blue);
+  }
+  .team-card:hover { transform: translateY(-4px); }
+  .team-photo {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; color: var(--gold);
+    border: 3px solid var(--gold);
+    overflow: hidden;
+  }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .team-card h3 { font-size: 17px; color: var(--navy); }
+  .role-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin: 8px 0 10px;
+  }
+  .team-card p { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+  .team-email {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* ── CELEBRITY ── */
+  .celeb-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+  }
+  .celeb-image-box {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    display: flex; align-items: center; justify-content: center;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+  }
+  .celeb-image-box::after {
+    content: '';
+    position: absolute; bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    background: var(--gold); opacity: 0.2; border-radius: 50%;
+    transform: translate(30px, 30px);
+  }
+  .celeb-img-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px; color: rgba(201,168,76,0.3);
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1;
+  }
+  .celeb-img-placeholder small {
+    display: block; font-size: 12px; color: rgba(255,255,255,0.4);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400; letter-spacing: 1px;
+  }
+  .celeb-img-placeholder img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .celeb-content {
+    padding: 36px 32px;
+  }
+  .celeb-content h2 { font-size: 46px; color: var(--navy); line-height: 0.9; }
+  .celeb-content h2 small { 
+    display: block; font-size: 12px; font-family: 'Raleway', sans-serif;
+    font-weight: 700; color: var(--blue); letter-spacing: 3px; 
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .celeb-content p { font-size: 13.5px; color: var(--text-mid); line-height: 1.8; margin-top: 14px; }
+  .celeb-stats {
+    display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .stat-pill {
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 70px;
+  }
+  .stat-pill .num { font-family: 'Bebas Neue', sans-serif; font-size: 24px; display: block; }
+  .stat-pill .lbl { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: var(--blue-light); display: block; }
+
+  /* ── CHART ── */
+  .chart-wrapper {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+  }
+  .chart-wrapper canvas { max-height: 320px; }
+  .chart-analysis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .analysis-card {
+    background: var(--off-white);
+    border-radius: 12px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--blue);
+  }
+  .analysis-card h4 { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--navy); text-transform: uppercase; font-family: 'Raleway', sans-serif; }
+  .analysis-card p { font-size: 12px; color: var(--text-mid); margin-top: 4px; line-height: 1.5; }
+
+  /* ── GUIDELINES ── */
+  .guidelines-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 8px;
+  }
+  .guidelines-list li {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+    box-shadow: var(--shadow-sm);
+    font-size: 13.5px; color: var(--text-mid); line-height: 1.6;
+  }
+  .guide-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── VISION MISSION VALUES ── */
+  .vmv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .vmv-card {
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vmv-card.vision { background: var(--navy); }
+  .vmv-card.mission { background: var(--blue); }
+  .vmv-card.values { background: var(--green); }
+  .vmv-card::before {
+    content: '';
+    position: absolute; right: -20px; top: -20px;
+    width: 100px; height: 100px; border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .vmv-icon { font-size: 32px; margin-bottom: 12px; }
+  .vmv-card h3 {
+    font-size: 26px; color: var(--gold); margin-bottom: 10px;
+  }
+  .vmv-card.mission h3, .vmv-card.values h3 { color: var(--white); }
+  .vmv-card p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.7; }
+  .values-list { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .values-list li {
+    font-size: 12.5px; color: rgba(255,255,255,0.9);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .values-list li::before {
+    content: '✦';
+    color: var(--gold-light); font-size: 10px; flex-shrink: 0;
+  }
+
+  /* ── EMAIL ── */
+  .email-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .email-header {
+    background: var(--navy);
+    padding: 16px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .email-dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.red { background: #FF6057; }
+  .dot.yellow { background: #FFBD2E; }
+  .dot.green { background: #27C93F; }
+  .email-label { color: var(--blue-light); font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+  .email-body { padding: 28px 32px; }
+  .email-meta { font-size: 12px; color: var(--text-light); margin-bottom: 4px; }
+  .email-meta strong { color: var(--navy); font-weight: 700; }
+  .email-subject { font-size: 16px; font-weight: 800; color: var(--navy); margin: 12px 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--gray); }
+  .email-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.8; }
+  .email-text p { margin-bottom: 12px; }
+
+  /* ── LETTER ── */
+  .letter-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 48px;
+    position: relative;
+    border-top: 6px solid var(--gold);
+  }
+  .letter-watermark {
+    position: absolute; right: 30px; top: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px; color: rgba(13,27,62,0.04);
+    line-height: 1;
+    text-align: right;
+    pointer-events: none;
+  }
+  .letter-from { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .letter-date { font-size: 12px; color: var(--text-light); margin-bottom: 28px; }
+  .letter-greeting { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+  .letter-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.9; }
+  .letter-body p { margin-bottom: 16px; }
+  .letter-sign { margin-top: 28px; }
+  .letter-sign p { font-size: 13px; color: var(--text-mid); margin-bottom: 4px; }
+  .letter-sign strong { font-size: 14px; color: var(--navy); font-weight: 800; }
+
+  /* ── TRAINING ── */
+  .training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .training-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 26px 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .training-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 14px;
+  }
+  .training-card:nth-child(1) .training-icon { background: rgba(74,159,212,0.15); }
+  .training-card:nth-child(2) .training-icon { background: rgba(201,168,76,0.15); }
+  .training-card:nth-child(3) .training-icon { background: rgba(91,173,138,0.15); }
+  .training-card h3 { font-size: 20px; color: var(--navy); }
+  .training-card p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-top: 8px; }
+  .schedule-table {
+    width: 100%; border-collapse: collapse; margin-top: 24px;
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow-sm);
+  }
+  .schedule-table th {
+    background: var(--navy); color: var(--gold);
+    padding: 12px 16px; text-align: left;
+    font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1px;
+  }
+  .schedule-table td {
+    padding: 12px 16px; font-size: 13px; color: var(--text-mid);
+    border-bottom: 1px solid var(--gray);
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table tr:nth-child(even) td { background: var(--off-white); }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .badge.marketing { background: rgba(74,159,212,0.15); color: var(--blue); }
+  .badge.tech { background: rgba(201,168,76,0.15); color: #8a6a00; }
+  .badge.service { background: rgba(91,173,138,0.15); color: #2d7a58; }
+
+  /* ── REPORT ── */
+  .report-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .report-header {
+    background: linear-gradient(90deg, var(--navy), var(--navy-light));
+    padding: 22px 30px;
+  }
+  .report-header h3 { font-size: 28px; color: var(--white); }
+  .report-header p { font-size: 12px; color: var(--blue-light); margin-top: 4px; font-weight: 600; letter-spacing: 1px; }
+  .report-body { padding: 30px; }
+  .report-point {
+    display: flex; gap: 18px; margin-bottom: 22px;
+  }
+  .report-point:last-child { margin-bottom: 0; }
+  .point-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .report-point h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 4px; font-family: 'Raleway', sans-serif; }
+  .report-point p { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    padding: 40px 40px 30px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--gold);
+    letter-spacing: 3px; margin-bottom: 4px;
+  }
+  .footer-slogan {
+    font-size: 11px; color: var(--blue-light);
+    letter-spacing: 4px; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 20px;
+  }
+  .footer-links {
+    display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+  /* ── WEEK TAGS ── */
+  .week-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .week-tag.dark {
+    background: rgba(74,159,212,0.15);
+    border-color: rgba(74,159,212,0.4);
+    color: var(--blue);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1: HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="tennis-ball"></div>
+  <div class="tennis-ball2"></div>
+
+  <div class="hero-logo-ring">
+    <div>
+      <div class="logo-placeholder">GC</div>
+      <span class="logo-sub">GLOBAL CHAMPION REPS</span>
+    </div>
+    <!-- CANVA: Replace inner content with the real logo image -->
+    <!-- [INSERT IMAGE: Global Champion Reps Logo] -->
+  </div>
+
+  <h1>GLOBAL<br><span>CHAMPION</span><br>REPS</h1>
+  <p class="hero-slogan">Next Level Players</p>
+  <div class="hero-celebrity">🎾 Current Celebrity: <span>Novak Djokovic</span></div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2: CONTACT INFORMATION
+══════════════════════════════════════════ -->
+<div class="contact-bar">
+  <div class="contact-item">
+    <div class="contact-icon">📍</div>
+    London, England
+  </div>
+  <div class="contact-divider"></div>
+  <div class="contact-item">
+    <div class="contact-icon">✉️</div>
+    contact@globalchampionreps.com
+  </div>
+  <div class="contact-divider"></div>
+  <div class="contact-item">
+    <div class="contact-icon">📞</div>
+    +44 20 7946 0857
+  </div>
+  <div class="contact-divider"></div>
+  <div class="contact-item">
+    <div class="contact-icon">📷</div>
+    @globalchampionreps
+  </div>
+  <div class="contact-divider"></div>
+  <div class="contact-item">
+    <div class="contact-icon">👍</div>
+    Global Champion Reps
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3: PREVIOUS CLIENTS
+══════════════════════════════════════════ -->
+<section class="section white">
+  <span class="section-label">Our Track Record</span>
+  <h2 class="section-title">Previous Clients</h2>
+  <div class="divider"></div>
+  <p style="font-size:14px;color:var(--text-mid);margin-bottom:20px;">
+    Global Champion Reps has collaborated with international athletes, sports brands, and professional events.
+  </p>
+  <div class="clients-grid">
+    <div class="client-card">
+      <div class="client-icon">🎾</div>
+      <div>
+        <h4>Alexander Zverev</h4>
+        <p>Professional Tennis Player</p>
+      </div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">👟</div>
+      <div>
+        <h4>Adidas</h4>
+        <p>Global Tennis Promotion Event</p>
+      </div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">🏆</div>
+      <div>
+        <h4>London Elite Sports Summit</h4>
+        <p>International Sports Event</p>
+      </div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">⭐</div>
+      <div>
+        <h4>NextGen Tennis Program</h4>
+        <p>Talent Development Initiative</p>
+      </div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">🏅</div>
+      <div>
+        <h4>Elite Performance Sports Camp</h4>
+        <p>High-Performance Training</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4: OUR TEAM
+══════════════════════════════════════════ -->
+<section class="section alt">
+  <span class="section-label">The People Behind the Brand</span>
+  <h2 class="section-title">Our Team</h2>
+  <div class="divider"></div>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- [INSERT IMAGE: Kevin Espinoza photo] -->
+        KE
+      </div>
+      <h3>Kevin Espinoza</h3>
+      <span class="role-badge">General Manager</span>
+      <p>Responsible for overseeing company strategy, partnerships, and operations.</p>
+      <a class="team-email" href="mailto:kevin@globalchampionreps.com">kevin@globalchampionreps.com</a>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- [INSERT IMAGE: Diego Lizarraga photo] -->
+        DL
+      </div>
+      <h3>Diego Lizarraga</h3>
+      <span class="role-badge">Marketing Manager</span>
+      <p>Develops marketing strategies, sponsorship opportunities, and brand collaborations.</p>
+      <a class="team-email" href="mailto:diego@globalchampionreps.com">diego@globalchampionreps.com</a>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- [INSERT IMAGE: Esmeralda Olvera photo] -->
+        EO
+      </div>
+      <h3>Esmeralda V. Olvera</h3>
+      <span class="role-badge">PR Manager</span>
+      <p>Manages communication with the media and maintains the public image of athletes.</p>
+      <a class="team-email" href="mailto:esmeralda@globalchampionreps.com">esmeralda@globalchampionreps.com</a>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- [INSERT IMAGE: Johanna Ramirez photo] -->
+        JR
+      </div>
+      <h3>Johanna Ramirez</h3>
+      <span class="role-badge">Social Media Manager</span>
+      <p>Responsible for managing digital platforms and creating social media content.</p>
+      <a class="team-email" href="mailto:johanna@globalchampionreps.com">johanna@globalchampionreps.com</a>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- [INSERT IMAGE: José Ricardo Vera photo] -->
+        JV
+      </div>
+      <h3>José Ricardo Vera</h3>
+      <span class="role-badge">Finance Manager</span>
+      <p>Oversees financial planning, sponsorship contracts, and financial operations.</p>
+      <a class="team-email" href="mailto:ricardo@globalchampionreps.com">ricardo@globalchampionreps.com</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5: NOVAK DJOKOVIC BIOGRAPHY
+══════════════════════════════════════════ -->
+<section class="section white">
+  <span class="section-label">Current Celebrity</span>
+  <h2 class="section-title">Novak Djokovic</h2>
+  <div class="divider"></div>
+  <div class="celeb-card">
+    <div class="celeb-image-box">
+      <!-- [INSERT IMAGE: Novak Djokovic professional photo] -->
+      <div class="celeb-img-placeholder">
+        ND
+        <small>Insert Djokovic Photo</small>
+      </div>
+    </div>
+    <div class="celeb-content">
+      <h2>
+        <small>Professional Tennis Player</small>
+        NOVAK<br>DJOKOVIC
+      </h2>
+      <p>
+        Novak Djokovic is a professional tennis player from Serbia and is widely considered one of the greatest players in the history of tennis. He was born on May 22, 1987, in Belgrade, Serbia.
+      </p>
+      <p>
+        Throughout his career, Djokovic has won numerous Grand Slam titles, including the Australian Open, Wimbledon, the French Open, and the US Open. He has also held the world number one ranking multiple times and has broken several records in professional tennis.
+      </p>
+      <p>
+        He is known for his exceptional physical endurance, flexibility, and mental strength, which allow him to perform at the highest level. His dedication and consistency have made him one of the most dominant athletes in modern tennis.
+      </p>
+      <div class="celeb-stats">
+        <div class="stat-pill">
+          <span class="num">24</span>
+          <span class="lbl">Grand Slams</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">#1</span>
+          <span class="lbl">World Ranking</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">20+</span>
+          <span class="lbl">Years Active</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">4</span>
+          <span class="lbl">Slam Types</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6: STATISTICS GRAPH (Week 13)
+══════════════════════════════════════════ -->
+<section class="section alt">
+  <span class="week-tag dark">Week 13 — Graph</span>
+  <h2 class="section-title">Statistics Graph</h2>
+  <div class="divider"></div>
+  <div class="chart-wrapper">
+    <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;font-weight:600;">
+      Novak Djokovic — Grand Slam Titles: 2008–2026 (Cumulative)
+    </p>
+    <canvas id="djokovic-chart"></canvas>
+    <div class="chart-analysis">
+      <div class="analysis-card">
+        <h4>📊 2008 – 2010</h4>
+        <p>The number of titles <strong>remained steady</strong>. There was a <strong>plateau</strong> in his Grand Slam count during these early years.</p>
+      </div>
+      <div class="analysis-card">
+        <h4>📈 2011 &amp; 2015</h4>
+        <p>His success <strong>peaked</strong> in these years. There was a <strong>sharp rise</strong> in the total number of trophies, marking key turning points.</p>
+      </div>
+      <div class="analysis-card">
+        <h4>📉 2017</h4>
+        <p>A <strong>slight dip</strong> in performance occurred due to injuries, although the cumulative total remained relatively stable.</p>
+      </div>
+      <div class="analysis-card">
+        <h4>📊 2018 – 2023</h4>
+        <p>A strong <strong>upward trend</strong> resumed. Titles increased significantly, showing <strong>steady growth</strong> and long-term dominance.</p>
+      </div>
+      <div class="analysis-card">
+        <h4>➖ 2024 – 2026</h4>
+        <p>The figures appear to <strong>level off</strong> at 24 titles, suggesting the consolidation of an extraordinary career.</p>
+      </div>
+      <div class="analysis-card" style="border-left-color:var(--gold);">
+        <h4>📌 Overall Trend</h4>
+        <p>The graph shows a <strong>dramatic upward trajectory</strong> over nearly two decades — a true champion's career.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7: GUIDELINES TO LIAISE
+══════════════════════════════════════════ -->
+<section class="section dark">
+  <span class="section-label">Professional Protocol</span>
+  <h2 class="section-title white">Guidelines to Liaise<br>with Novak Djokovic</h2>
+  <div class="divider"></div>
+  <p style="font-size:13.5px;color:rgba(255,255,255,0.7);margin-bottom:20px;">
+    All professional communication with Novak Djokovic must be conducted through Global Champion Reps.
+  </p>
+  <ul class="guidelines-list">
+    <li>
+      <div class="guide-num">1</div>
+      All requests must be submitted <strong>at least two weeks in advance</strong> to allow proper scheduling and preparation.
+    </li>
+    <li>
+      <div class="guide-num">2</div>
+      All collaborations and appearances must be <strong>approved by the management team</strong> before confirmation.
+    </li>
+    <li>
+      <div class="guide-num">3</div>
+      Media appearances must follow the terms of the <strong>current contractual agreements</strong> with the agency.
+    </li>
+    <li>
+      <div class="guide-num">4</div>
+      <strong>Personal contact information</strong> must remain confidential at all times and must not be shared publicly.
+    </li>
+    <li>
+      <div class="guide-num">5</div>
+      All <strong>business negotiations</strong> must be handled directly through Global Champion Reps, not through personal contact.
+    </li>
+  </ul>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 8: VISION, MISSION, VALUES
+══════════════════════════════════════════ -->
+<section class="section white">
+  <span class="section-label">About the Company</span>
+  <h2 class="section-title">Vision · Mission · Values</h2>
+  <div class="divider"></div>
+  <div class="vmv-grid">
+    <div class="vmv-card vision">
+      <div class="vmv-icon">🔭</div>
+      <h3>Vision</h3>
+      <p>To become a leading company in the representation of emerging sports talents, promoting their abilities and helping them reach their maximum potential at both national and international levels.</p>
+    </div>
+    <div class="vmv-card mission">
+      <div class="vmv-icon">🎯</div>
+      <h3>Mission</h3>
+      <p>To support athletes by providing them with new opportunities in the sports world, offering professional guidance, promoting their talent, and accompanying them in the development of their sports careers.</p>
+    </div>
+    <div class="vmv-card values">
+      <div class="vmv-icon">⚖️</div>
+      <h3>Values</h3>
+      <ul class="values-list">
+        <li><strong>Professionalism</strong> — We strive for excellence in every project.</li>
+        <li><strong>Respect</strong> — We value athletes, collaborators, and clients.</li>
+        <li><strong>Transparency</strong> — We maintain clear and honest communication.</li>
+        <li><strong>Integrity</strong> — We make ethical and responsible decisions.</li>
+        <li><strong>Commitment</strong> — We support the growth of every athlete we represent.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 9: EMAIL (Week 5)
+══════════════════════════════════════════ -->
+<section class="section alt">
+  <span class="week-tag">Week 5 — Professional Email</span>
+  <h2 class="section-title">Professional Email</h2>
+  <div class="divider"></div>
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-dots">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <span class="email-label">📧 FORMAL EMAIL — GLOBAL CHAMPION REPS</span>
+    </div>
+    <div class="email-body">
+      <p class="email-meta"><strong>From:</strong> Kevin Espinoza — kevin@globalchampionreps.com</p>
+      <p class="email-meta"><strong>To:</strong> Diego Lizarraga — diego@globalchampionreps.com</p>
+      <p class="email-meta"><strong>Date:</strong> March 15, 2026</p>
+      <p class="email-subject">Request for Update — Novak Djokovic Brand Campaign Progress</p>
+      <div class="email-text">
+        <p>Dear Diego,</p>
+        <p>I hope this message finds you well. I am writing to request an update regarding the progress of the Novak Djokovic Brand Campaign.</p>
+        <p>Could you please inform me whether the campaign is expected to be completed by the established deadline? If not, we may need to consider reviewing the timeline accordingly. Any delays could affect our upcoming media appearances and sponsorship commitments.</p>
+        <p>I would appreciate it if you could send me a brief status report by the end of this week so that we can plan our next steps effectively.</p>
+        <p>Thank you for your time and dedication to this project.</p>
+        <p>Kind regards,<br><strong>Kevin Espinoza</strong><br>General Manager — Global Champion Reps<br>+44 20 7946 0857</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 10: LETTER (Week 9)
+══════════════════════════════════════════ -->
+<section class="section white">
+  <span class="week-tag">Week 9 — Formal Letter</span>
+  <h2 class="section-title">Letter to the Celebrity</h2>
+  <div class="divider"></div>
+  <div class="letter-card">
+    <div class="letter-watermark">GCR</div>
+    <p class="letter-from">Global Champion Reps · London, England</p>
+    <p class="letter-date">April 17, 2026</p>
+    <p class="letter-greeting">Dear Novak Djokovic,</p>
+    <div class="letter-body">
+      <p>We are pleased to inform you about your upcoming trip to Bali, Indonesia, where you will promote your personal brand and take part in several professional activities related to sports, media, and public appearances.</p>
+      <p>Regarding transportation, a private driver will meet you at the airport and take you directly to your hotel. During your stay, you will have a private vehicle available for all door-to-door transfers. This includes transportation to interviews, promotional events, meetings, and leisure activities. This service will ensure that you travel safely, comfortably, and on time throughout the trip.</p>
+      <p>We would also like to share some important dos and don'ts about Balinese culture. It is important to be respectful, polite, and modest, especially when visiting temples or traditional places. Wearing appropriate clothing and following local customs is highly recommended. You should also greet people kindly and show appreciation for their traditions.</p>
+      <p>However, you should avoid dressing inappropriately in sacred places, touching people's heads, or being disrespectful in religious areas.</p>
+      <p>For entertainment, we recommend visiting Uluwatu Temple, Tanah Lot, and the beaches of Seminyak and Nusa Dua. You may also enjoy traditional Balinese dances, local markets, and excellent restaurants.</p>
+    </div>
+    <div class="letter-sign">
+      <p>Warm regards,</p>
+      <strong>Global Champion Reps Management Team</strong><br>
+      <span style="font-size:12px;color:var(--text-light);">contact@globalchampionreps.com · +44 20 7946 0857</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 11: TRAINING PROGRAM (Week 10)
+══════════════════════════════════════════ -->
+<section class="section alt">
+  <span class="week-tag">Week 10 — Staff Training</span>
+  <h2 class="section-title">Training Program &amp; Schedule</h2>
+  <div class="divider"></div>
+  <div class="training-grid">
+    <div class="training-card">
+      <div class="training-icon">📱</div>
+      <h3>Marketing</h3>
+      <p>We will increase our visibility through social media and other communication channels. Professionals skilled in digital marketing will be hired to promote the company and our clients more effectively.</p>
+    </div>
+    <div class="training-card">
+      <div class="training-icon">💻</div>
+      <h3>Technological Skills</h3>
+      <p>Employees will receive training in software, online tools, and digital communication. Technology makes work easier and more productive, so this area is a key priority for our team.</p>
+    </div>
+    <div class="training-card">
+      <div class="training-icon">🤝</div>
+      <h3>Customer Service</h3>
+      <p>We will offer more responsive, personalized, and effective support. With a more professional and empathetic team, stronger relationships with clients and athletes will be built.</p>
+    </div>
+  </div>
+
+  <table class="schedule-table" style="margin-top:28px;">
+    <thead>
+      <tr>
+        <th>Week</th>
+        <th>Area</th>
+        <th>Activity</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Week 1</td>
+        <td><span class="badge marketing">Marketing</span></td>
+        <td>Social Media Strategy Workshop</td>
+        <td>8 hours</td>
+      </tr>
+      <tr>
+        <td>Week 2</td>
+        <td><span class="badge marketing">Marketing</span></td>
+        <td>Brand Promotion &amp; Sponsorship Training</td>
+        <td>8 hours</td>
+      </tr>
+      <tr>
+        <td>Week 3</td>
+        <td><span class="badge tech">Tech Skills</span></td>
+        <td>Digital Tools &amp; Software Training</td>
+        <td>8 hours</td>
+      </tr>
+      <tr>
+        <td>Week 4</td>
+        <td><span class="badge tech">Tech Skills</span></td>
+        <td>Online Communication &amp; Digital Platforms</td>
+        <td>8 hours</td>
+      </tr>
+      <tr>
+        <td>Week 5</td>
+        <td><span class="badge service">Customer Service</span></td>
+        <td>Client Communication Skills</td>
+        <td>8 hours</td>
+      </tr>
+      <tr>
+        <td>Week 6</td>
+        <td><span class="badge service">Customer Service</span></td>
+        <td>Personalized Support &amp; Follow-up Techniques</td>
+        <td>8 hours</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:12px;color:var(--text-light);margin-top:14px;font-style:italic;">
+    Conclusion: Improving these three areas will help the team become more professional, efficient, and competitive, allowing the agency to offer a higher quality service in the future.
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 12: WEBSITE IMPROVEMENT REPORT (Week 15)
+══════════════════════════════════════════ -->
+<section class="section white">
+  <span class="week-tag">Week 15 — Report</span>
+  <h2 class="section-title">Website Improvement Report</h2>
+  <div class="divider"></div>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>Improving the Global Champion Reps Website</h3>
+      <p>Prepared by: Johanna Ramírez Hernández · Global Champion Reps</p>
+    </div>
+    <div class="report-body">
+      <div class="report-point">
+        <div class="point-num">1</div>
+        <div>
+          <h4>Introduction</h4>
+          <p>This report outlines ways to improve the website of Global Champion Reps, whose slogan is "Next Level Players." As a company based in London, England, specializing in the representation of high-performance athletes, our website should communicate professionalism and excellence.</p>
+        </div>
+      </div>
+      <div class="report-point">
+        <div class="point-num">2</div>
+        <div>
+          <h4>Problems with the Old Website</h4>
+          <p>The previous website did not clearly present our services or athlete profiles. The design appeared outdated and some important information was difficult to locate. As a result, potential clients and sponsors may have left the website without understanding the full range of services we offer.</p>
+        </div>
+      </div>
+      <div class="report-point">
+        <div class="point-num">3</div>
+        <div>
+          <h4>Layout of the New Website</h4>
+          <p>The new website features a modern and attractive design with clear navigation menus. The homepage highlights our slogan, athlete achievements, and company mission. Furthermore, the website is fully responsive to ensure easy access from mobile devices.</p>
+        </div>
+      </div>
+      <div class="report-point">
+        <div class="point-num">4</div>
+        <div>
+          <h4>Information on the New Website</h4>
+          <p>The website includes detailed athlete profiles, sponsorship opportunities, success stories, company services, and updated news. Visible contact information and details about our London headquarters are also provided.</p>
+        </div>
+      </div>
+      <div class="report-point">
+        <div class="point-num">5</div>
+        <div>
+          <h4>Recommendations &amp; Conclusion</h4>
+          <p>A more user-friendly and informative website strengthens the company's image. It is recommended that Global Champion Reps continue to update its website regularly to improve communication, attract new athletes and sponsors, and support future business growth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-logo">GLOBAL CHAMPION REPS</div>
+  <div class="footer-slogan">Next Level Players</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Our Team</a>
+    <a href="#">Celebrity</a>
+    <a href="#">Training</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px;">
+    📍 London, England &nbsp;|&nbsp; ✉️ contact@globalchampionreps.com &nbsp;|&nbsp; 📞 +44 20 7946 0857
+  </p>
+  <p class="footer-copy">© 2026 Global Champion Reps. All rights reserved. · English V – Group 702</p>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     CHART SCRIPT
+══════════════════════════════════════════ -->
+<script>
+const ctx = document.getElementById('djokovic-chart').getContext('2d');
+const years = [2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
+const cumulative = [1,1,2,5,7,10,12,15,17,17,19,21,22,23,23,24,24,24,24];
+const annual = [1,0,1,3,2,3,2,3,2,0,2,2,1,1,0,1,0,0,0];
+
+new Chart(ctx, {
+  data: {
+    labels: years,
+    datasets: [
+      {
+        type: 'line',
+        label: 'Cumulative Grand Slam Titles',
+        data: cumulative,
+        borderColor: '#C9A84C',
+        backgroundColor: 'rgba(201,168,76,0.12)',
+        borderWidth: 3,
+        pointBackgroundColor: '#C9A84C',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        tension: 0.3,
+        fill: true,
+        yAxisID: 'y'
+      },
+      {
+        type: 'bar',
+        label: 'Titles Won That Year',
+        data: annual,
+        backgroundColor: 'rgba(74,159,212,0.55)',
+        borderColor: '#4A9FD4',
+        borderWidth: 1,
+        borderRadius: 4,
+        yAxisID: 'y'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        labels: { color: '#3D5278', font: { family: 'Raleway', size: 12, weight: '600' } }
+      },
+      tooltip: {
+        backgroundColor: '#0D1B3E',
+        titleColor: '#C9A84C',
+        bodyColor: '#fff',
+        padding: 10,
+        titleFont: { family: 'Raleway', size: 13, weight: '800' }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#6B82A8', font: { size: 11 } },
+        grid: { display: false }
+      },
+      y: {
+        ticks: { color: '#6B82A8', font: { size: 11 }, stepSize: 5 },
+        grid: { color: 'rgba(107,130,168,0.15)' },
+        title: { display: true, text: 'Grand Slam Titles', color: '#6B82A8', font: { size: 12, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

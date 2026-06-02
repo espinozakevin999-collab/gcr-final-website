@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCR – Canva Guide, Script & Rubric</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0D1B3E; --gold:#C9A84C; --blue:#4A9FD4;
+    --green:#5BAD8A; --off:#F4F8FC; --gray:#E8EDF2;
+    --text:#1A2744; --mid:#3D5278; --light:#6B82A8;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Raleway',sans-serif;background:var(--off);color:var(--text);max-width:860px;margin:0 auto;padding:30px 20px 60px;}
+  h1{font-size:32px;color:var(--navy);margin-bottom:4px;}
+  .subtitle{color:var(--light);font-size:14px;margin-bottom:30px;}
+
+  /* TABS */
+  .tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+  .tab{padding:8px 18px;border-radius:30px;border:2px solid var(--gray);background:var(--gray);
+    font-size:13px;font-weight:700;cursor:pointer;color:var(--mid);transition:all .2s;}
+  .tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy);}
+
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  /* SHARED CARD */
+  .card{background:#fff;border-radius:var(--radius);padding:24px 28px;box-shadow:0 4px 18px rgba(13,27,62,.09);margin-bottom:18px;}
+  .card h2{font-size:20px;color:var(--navy);margin-bottom:4px;}
+  .card .sub{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  .card p, .card li{font-size:13.5px;color:var(--mid);line-height:1.8;margin-bottom:8px;}
+  .card ul, .card ol{padding-left:20px;}
+
+  /* SECTION ROW */
+  .section-row{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:14px;
+    border:1px solid var(--gray);border-radius:var(--radius);overflow:hidden;}
+  .row-label{background:var(--navy);color:var(--gold);padding:14px 16px;font-size:13px;font-weight:800;}
+  .row-label small{display:block;font-size:10px;color:var(--blue);font-weight:400;margin-top:3px;letter-spacing:1px;}
+  .row-content{padding:14px 18px;}
+  .row-content p{font-size:13px;color:var(--mid);margin-bottom:6px;line-height:1.7;}
+  .row-content strong{color:var(--navy);}
+
+  /* IMAGE NOTE */
+  .img-note{display:inline-block;background:rgba(201,168,76,.12);border:1px dashed var(--gold);
+    color:#7a5a00;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:8px;margin:4px 0;}
+
+  /* SCRIPT */
+  .speaker{display:inline-block;background:var(--navy);color:var(--gold);
+    font-size:11px;font-weight:800;letter-spacing:1.5px;padding:3px 10px;border-radius:20px;
+    margin-bottom:8px;text-transform:uppercase;}
+  .speaker.diego{background:var(--blue);color:#fff;}
+  .speaker.esme{background:var(--green);color:#fff;}
+  .speaker.johanna{background:#8E44AD;color:#fff;}
+  .speaker.jose{background:#D35400;color:#fff;}
+  .script-block{margin-bottom:22px;}
+  .script-text{font-size:13.5px;color:var(--mid);line-height:1.9;font-style:italic;}
+
+  /* CHECKLIST */
+  .checklist{display:flex;flex-direction:column;gap:8px;}
+  .check-item{display:flex;align-items:center;gap:12px;padding:10px 14px;
+    background:var(--off);border-radius:10px;font-size:13.5px;font-weight:600;color:var(--mid);}
+  .check-box{width:22px;height:22px;border-radius:6px;background:var(--green);
+    color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+  .check-item .loc{font-size:11px;font-weight:400;color:var(--light);margin-left:auto;}
+
+  /* COPY BLOCK */
+  .copy-block{background:#f8f9fb;border:1px solid var(--gray);border-radius:10px;
+    padding:14px 16px;font-size:13px;color:var(--mid);line-height:1.8;
+    white-space:pre-wrap;margin:8px 0 4px;}
+</style>
+</head>
+<body>
+
+<h1>🏆 Global Champion Reps</h1>
+<p class="subtitle">Complete Canva Guide · Presentation Script · Rubric Checklist — English V, Group 702</p>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('part1')">Part 1 – Canva Structure</div>
+  <div class="tab" onclick="showTab('part2')">Part 2 – Copy-Paste Text</div>
+  <div class="tab" onclick="showTab('part3')">Part 3 – Image Placement</div>
+  <div class="tab" onclick="showTab('part5')">Part 5 – Oral Script</div>
+  <div class="tab" onclick="showTab('part6')">Part 6 – Rubric ✅</div>
+</div>
+
+<!-- ═══════════════ PART 1 ═══════════════ -->
+<div id="part1" class="tab-panel active">
+<div class="card">
+  <div class="sub">Part 1</div>
+  <h2>Canva Webpage Structure — Section by Section</h2>
+  <p>Use a <strong>vertical webpage format</strong> in Canva (recommended size: 1080 × 6000 px or longer). Palette: Navy #0D1B3E · Gold #C9A84C · Light Blue #4A9FD4 · Soft Green #5BAD8A · White · Off-white #F4F8FC.</p>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 1<small>HERO</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Dark navy gradient. <strong>Center:</strong> Logo in a gold circle border. Below: Company name in large bold white text. Slogan in small uppercase light blue text. Gold pill badge: "🎾 Current Celebrity: Novak Djokovic"</p>
+    <p><strong>Icons/Deco:</strong> Add tennis ball graphics (green, blue) as transparent overlays in corners.</p>
+    <p><strong>Layout:</strong> Full-width, centered, tall enough to feel like a real hero banner (~700–800 px tall).</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 2<small>CONTACT BAR</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White with a gold bottom border. <strong>Layout:</strong> 5 items in a horizontal row, separated by thin lines. Each item: small navy circle icon + text. Icons: 📍✉️📞📷👍</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 3<small>PREV. CLIENTS</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White. <strong>Title:</strong> "Previous Clients" with gold underline bar. <strong>Cards:</strong> 5 rounded white cards in a 2–3 column grid. Each card: left gold border + navy icon box + name + description.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 4<small>OUR TEAM</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Off-white/gray. <strong>Title:</strong> "Our Team". <strong>Cards:</strong> 5 white cards with rounded top blue border. Each: circular photo (or initials), name, role badge (navy+gold), short description, email.</p>
+    <p><strong>Layout:</strong> 2 columns, last card centered OR 2+3 grid.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 5<small>DJOKOVIC BIO</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White. <strong>Layout:</strong> Split card — left: Djokovic photo on dark navy background. Right: Bio text with name in large bold navy font, 3 paragraphs, stat pills at bottom (24 Slams, #1 Ranking, 20+ Years, 4 Slam Types).</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 6<small>STATS GRAPH</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Light gray. <strong>Title:</strong> "Statistics Graph" + Week 13 label. <strong>Chart:</strong> Line + bar combo chart (Grand Slam titles 2008–2026). Export from HTML file and paste as image in Canva.</p>
+    <p><strong>Below chart:</strong> 6 small analysis cards in 2–3 column grid. Each: bolded year + key vocabulary (plateau, sharp rise, slight dip, upward trend, level off, steady growth).</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 7<small>GUIDELINES</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Dark navy. <strong>Title:</strong> White "Guidelines to Liaise with Novak Djokovic". <strong>List:</strong> 5 numbered items. Each: gold numbered circle + white card with text. Light blue paragraph intro text above the list.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 8<small>VISION · MISSION · VALUES</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White. <strong>Title:</strong> "Vision · Mission · Values". <strong>3 cards side by side:</strong> Vision (navy bg, gold text), Mission (blue bg, white text), Values (green bg, white text). Each has an icon on top.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 9<small>EMAIL (WK 5)</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Light gray. <strong>Style:</strong> A "browser window" design — navy top bar with 3 colored dots + email label. White email body below with From/To/Date/Subject header, then email text. Add gold border-bottom to subject line.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 10<small>LETTER (WK 9)</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White. <strong>Style:</strong> Formal letter card — thick gold top border, sender info top left, date, "Dear Novak Djokovic," greeting, 4 letter paragraphs, closing signature. Add large faint "GCR" watermark text in background.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 11<small>TRAINING (WK 10)</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Light gray. <strong>Title:</strong> "Training Program & Schedule". <strong>3 cards:</strong> Marketing (blue icon), Tech Skills (gold icon), Customer Service (green icon). Below: a 4-column schedule table with week/area/activity/duration. Color-coded badges for each area.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">SECTION 12<small>REPORT (WK 15)</small></div>
+  <div class="row-content">
+    <p><strong>Background:</strong> White. <strong>Style:</strong> Report card — dark navy header with title + author line. White body with 5 numbered points, each: gold numbered circle + heading + paragraph. Clean, professional look.</p>
+  </div>
+</div>
+
+<div class="section-row">
+  <div class="row-label">FOOTER</div>
+  <div class="row-content">
+    <p><strong>Background:</strong> Dark navy. <strong>Content:</strong> Logo text, slogan, navigation links, divider line, contact info, copyright line. All text in white/gold/light blue.</p>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PART 2 ═══════════════ -->
+<div id="part2" class="tab-panel">
+<div class="card">
+  <div class="sub">Part 2</div>
+  <h2>Clean Text — Ready to Copy and Paste into Canva</h2>
+  <p>Each block below is ready to paste. Keep text short in Canva — only use what fits your design.</p>
+</div>
+
+<div class="card">
+  <div class="sub">Hero Section</div>
+  <div class="copy-block">GLOBAL CHAMPION REPS
+NEXT LEVEL PLAYERS
+🎾 Current Celebrity: Novak Djokovic</div>
+</div>
+
+<div class="card">
+  <div class="sub">Contact Bar</div>
+  <div class="copy-block">📍 London, England
+✉️ contact@globalchampionreps.com
+📞 +44 20 7946 0857
+📷 @globalchampionreps
+👍 Global Champion Reps</div>
+</div>
+
+<div class="card">
+  <div class="sub">Previous Clients</div>
+  <div class="copy-block">PREVIOUS CLIENTS
+Global Champion Reps has collaborated with international athletes, sports brands, and professional events.
+
+• Alexander Zverev — Professional Tennis Player
+• Adidas — Global Tennis Promotion Event
+• London Elite Sports Summit
+• NextGen Tennis Development Program
+• Elite Performance Sports Camp</div>
+</div>
+
+<div class="card">
+  <div class="sub">Team — Each Card</div>
+  <div class="copy-block">Kevin Espinoza
+GENERAL MANAGER
+Responsible for overseeing company strategy, partnerships, and operations.
+kevin@globalchampionreps.com
+
+Diego Lizarraga
+MARKETING MANAGER
+Develops marketing strategies, sponsorship opportunities, and brand collaborations.
+diego@globalchampionreps.com
+
+Esmeralda Valentina Olvera Sánchez
+PUBLIC RELATIONS MANAGER
+Manages communication with the media and maintains the public image of athletes.
+esmeralda@globalchampionreps.com
+
+Johanna Ramirez Hernandez
+SOCIAL MEDIA MANAGER
+Responsible for managing digital platforms and creating social media content.
+johanna@globalchampionreps.com
+
+José Ricardo Vera Juárez
+FINANCE MANAGER
+Oversees financial planning, sponsorship contracts, and financial operations.
+ricardo@globalchampionreps.com</div>
+</div>
+
+<div class="card">
+  <div class="sub">Novak Djokovic Biography</div>
+  <div class="copy-block">NOVAK DJOKOVIC
+Professional Tennis Player
+
+Novak Djokovic is a professional tennis player from Serbia and is widely considered one of the greatest players in the history of tennis. He was born on May 22, 1987, in Belgrade, Serbia.
+
+Throughout his career, Djokovic has won numerous Grand Slam titles, including the Australian Open, Wimbledon, the French Open, and the US Open. He has also held the world number one ranking multiple times.
+
+He is known for his exceptional physical endurance, flexibility, and mental strength. His dedication and consistency have made him one of the most dominant athletes in modern tennis.
+
+📊 24 Grand Slams  |  🏆 #1 World Ranking  |  ⏳ 20+ Years Active  |  🎾 4 Slam Types Won</div>
+</div>
+
+<div class="card">
+  <div class="sub">Statistics Graph Analysis</div>
+  <div class="copy-block">NOVAK DJOKOVIC — GRAND SLAM TITLES (2008–2026)
+
+📊 2008–2010: The number of titles remained steady. There was a plateau in his Grand Slam count.
+
+📈 2011 & 2015: His success peaked. There was a sharp rise in trophies, marking key moments in his career.
+
+📉 2017: A slight dip in performance occurred due to injuries, but the cumulative total remained stable.
+
+📊 2018–2023: A strong upward trend resumed with steady growth. Titles increased significantly.
+
+➖ 2024–2026: The figures level off at 24 titles, consolidating an extraordinary career.
+
+📌 Overall: The graph shows a dramatic upward trajectory over nearly two decades.</div>
+</div>
+
+<div class="card">
+  <div class="sub">Guidelines to Liaise</div>
+  <div class="copy-block">GUIDELINES TO LIAISE WITH NOVAK DJOKOVIC
+
+All professional communication must be conducted through Global Champion Reps.
+
+1. All requests must be submitted at least two weeks in advance.
+2. All collaborations must be approved by the management team.
+3. Media appearances must follow contractual agreements.
+4. Personal contact information must remain confidential.
+5. All business negotiations must be handled through the agency.</div>
+</div>
+
+<div class="card">
+  <div class="sub">Vision · Mission · Values</div>
+  <div class="copy-block">VISION
+To become a leading company in the representation of emerging sports talents, promoting their abilities and helping them reach their maximum potential at both national and international levels.
+
+MISSION
+To support athletes by providing them with new opportunities in the sports world, offering professional guidance, promoting their talent, and accompanying them in the development of their sports careers.
+
+VALUES
+✦ Professionalism — We strive for excellence in every project and collaboration.
+✦ Respect — We value athletes, collaborators, and clients.
+✦ Transparency — We maintain clear and honest communication.
+✦ Integrity — We make ethical and responsible decisions.
+✦ Commitment — We support the growth and success of every athlete we represent.</div>
+</div>
+
+<div class="card">
+  <div class="sub">Email (Week 5)</div>
+  <div class="copy-block">FROM: Kevin Espinoza — kevin@globalchampionreps.com
+TO: Diego Lizarraga — diego@globalchampionreps.com
+DATE: March 15, 2026
+SUBJECT: Request for Update — Novak Djokovic Brand Campaign Progress
+
+Dear Diego,
+
+I hope this message finds you well. I am writing to request an update regarding the progress of the Novak Djokovic Brand Campaign.
+
+Could you please inform me whether the campaign is expected to be completed by the established deadline? If not, we may need to consider reviewing the timeline accordingly.
+
+I would appreciate it if you could send me a brief status report by the end of this week so that we can plan our next steps effectively.
+
+Thank you for your time and dedication to this project.
+
+Kind regards,
+Kevin Espinoza
+General Manager — Global Champion Reps</div>
+</div>
+
+<div class="card">
+  <div class="sub">Letter (Week 9)</div>
+  <div class="copy-block">Global Champion Reps — London, England
+April 17, 2026
+
+Dear Novak Djokovic,
+
+We are pleased to inform you about your upcoming trip to Bali, Indonesia, where you will promote your personal brand and take part in several professional activities related to sports, media, and public appearances.
+
+Regarding transportation, a private driver will meet you at the airport and take you directly to your hotel. During your stay, you will have a private vehicle available for all door-to-door transfers. This service will ensure that you travel safely, comfortably, and on time.
+
+We would also like to share some important dos and don'ts about Balinese culture. It is important to be respectful, polite, and modest, especially when visiting temples or traditional places. Wearing appropriate clothing and following local customs is highly recommended. You should avoid dressing inappropriately in sacred places, touching people's heads, or being disrespectful in religious areas.
+
+For entertainment, we recommend visiting Uluwatu Temple, Tanah Lot, and the beaches of Seminyak and Nusa Dua. You may also enjoy traditional Balinese dances, local markets, and excellent restaurants.
+
+Warm regards,
+Global Champion Reps Management Team
+contact@globalchampionreps.com</div>
+</div>
+
+<div class="card">
+  <div class="sub">Training Program (Week 10)</div>
+  <div class="copy-block">STAFF TRAINING PROGRAM
+
+📱 MARKETING
+We will increase our visibility through social media and other communication channels. Professionals skilled in digital marketing will be hired to promote the company and our clients more effectively.
+
+💻 TECHNOLOGICAL SKILLS
+Employees will receive training in software, online tools, and digital communication. Technology makes work easier and more productive, so this is a key priority.
+
+🤝 CUSTOMER SERVICE
+We will offer more responsive, personalized, and effective support. With a more professional and empathetic team, stronger relationships with clients and athletes will be built.
+
+TRAINING SCHEDULE
+Week 1 | Marketing       | Social Media Strategy Workshop             | 8 hours
+Week 2 | Marketing       | Brand Promotion & Sponsorship Training     | 8 hours
+Week 3 | Tech Skills     | Digital Tools & Software Training          | 8 hours
+Week 4 | Tech Skills     | Online Communication & Digital Platforms   | 8 hours
+Week 5 | Customer Svc    | Client Communication Skills                | 8 hours
+Week 6 | Customer Svc    | Personalized Support & Follow-up           | 8 hours
+
+CONCLUSION: Improving these three areas will help the team become more professional, efficient, and competitive.</div>
+</div>
+
+<div class="card">
+  <div class="sub">Website Improvement Report (Week 15)</div>
+  <div class="copy-block">IMPROVING THE GLOBAL CHAMPION REPS WEBSITE
+Prepared by: Johanna Ramírez Hernández
+
+INTRODUCTION
+This report outlines improvements to the Global Champion Reps website. As a sports representation agency based in London, our website must communicate professionalism and excellence.
+
+POINT 1: PROBLEMS WITH THE OLD WEBSITE
+The previous website did not clearly present our services or athlete profiles. The design appeared outdated and some information was difficult to locate. Potential clients may have left without understanding our full range of services.
+
+POINT 2: LAYOUT OF THE NEW WEBSITE
+The new website features a modern and attractive design with clear navigation menus. The homepage highlights our slogan, athlete achievements, and company mission. It is also fully responsive for mobile devices.
+
+POINT 3: INFORMATION ON THE NEW WEBSITE
+The website includes detailed athlete profiles, sponsorship opportunities, success stories, company services, updated news, and visible contact information.
+
+RECOMMENDATIONS & CONCLUSION
+A user-friendly website strengthens the company's image. It is recommended that Global Champion Reps continue to update its website regularly to attract new athletes and sponsors and support business growth.</div>
+</div>
+</div>
+
+<!-- ═══════════════ PART 3 ═══════════════ -->
+<div id="part3" class="tab-panel">
+<div class="card">
+  <div class="sub">Part 3</div>
+  <h2>Image Placement Guide</h2>
+  <p>Use this guide to know exactly where each image goes in your Canva design.</p>
+</div>
+
+<div class="card">
+  <h2>🖼️ Company Logo</h2>
+  <div class="sub">Section 1 — Hero</div>
+  <span class="img-note">📁 File available: Global_Champion_Reps_1_.png / GLOBAL_CHAMPION_REPS.pdf</span>
+  <p style="margin-top:10px;">Place the circular navy-and-gold logo centered in the hero section inside a gold-bordered circle. Size: approximately 160×160 px. Remove background if needed.</p>
+</div>
+
+<div class="card">
+  <h2>📸 Staff Photos — 5 Members</h2>
+  <div class="sub">Section 4 — Our Team</div>
+  <p>Each team member's photo goes in their card, in a circular frame. If real photos are not available, use initials as placeholder:</p>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+    <span class="img-note">👤 [INSERT PHOTO: Kevin Espinoza] — Initials: KE</span>
+    <span class="img-note">👤 [INSERT PHOTO: Diego Lizarraga] — Initials: DL</span>
+    <span class="img-note">👤 [INSERT PHOTO: Esmeralda Olvera] — Initials: EO</span>
+    <span class="img-note">👤 [INSERT PHOTO: Johanna Ramirez] — Initials: JR</span>
+    <span class="img-note">👤 [INSERT PHOTO: José Ricardo Vera] — Initials: JV</span>
+  </div>
+  <p style="margin-top:10px;">The uploaded Canva screenshot shows the team photos already placed. Use those same photos from your Canva project.</p>
+</div>
+
+<div class="card">
+  <h2>🎾 Novak Djokovic Photos</h2>
+  <div class="sub">Sections 1 & 5</div>
+  <span class="img-note">🖼️ [INSERT IMAGE: Novak Djokovic — Section 1 hero, and Section 5 celebrity card]</span>
+  <p style="margin-top:10px;">In <strong>Section 1 (Hero)</strong>: Optional small photo or just use the logo. In <strong>Section 5 (Biography)</strong>: A professional or action photo of Djokovic on the LEFT side of the split card. Size: approximately 300×350 px.</p>
+  <p>Suggested: Use a high-quality photo from a public domain sports source. The Canva screenshot shows example Djokovic photos already used in your draft.</p>
+</div>
+
+<div class="card">
+  <h2>📊 Statistics Graph</h2>
+  <div class="sub">Section 6 — Week 13</div>
+  <span class="img-note">📁 File available: Graph shown in uploaded PDF (Puntuación lograda / line chart)</span>
+  <p style="margin-top:10px;">Use the line + bar chart created in the HTML file (open in browser → screenshot). OR use the graph from your uploaded PDF. Place it centered in Section 6 inside a white rounded card. Width: full section width. Height: approximately 320 px.</p>
+</div>
+
+<div class="card">
+  <h2>🎨 Decorative Elements & Icons</h2>
+  <div class="sub">Throughout all sections</div>
+  <p>The following decorative icons are recommended in Canva from the free element library:</p>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+    <span class="img-note">🎾 Tennis ball — use in Hero, footer, or as section dividers</span>
+    <span class="img-note">🏆 Trophy icon — Previous Clients section</span>
+    <span class="img-note">📧 Envelope icon — Email section header</span>
+    <span class="img-note">📄 Document icon — Letter and Report sections</span>
+    <span class="img-note">📊 Chart icon — Statistics section</span>
+    <span class="img-note">🌐 Globe icon — Vision/Mission section</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PART 5 ═══════════════ -->
+<div id="part5" class="tab-panel">
+<div class="card">
+  <div class="sub">Part 5</div>
+  <h2>Oral Presentation Script (5–8 Minutes)</h2>
+  <p>Divided among five team members. Speak naturally, clearly, and at a steady pace. Estimated total time: <strong>6–7 minutes</strong>.</p>
+</div>
+
+<div class="card">
+  <div class="script-block">
+    <span class="speaker">Kevin — General Manager</span>
+    <div class="script-text">
+      <p>"Good morning, everyone. My name is Kevin Espinoza, and I am the General Manager of Global Champion Reps.</p>
+      <p>Today, we are very happy to present our final sports representation agency website. Our company is called Global Champion Reps, and our slogan is <em>Next Level Players</em>.</p>
+      <p>We are a professional sports agency based in London, England. Our main goal is to represent elite athletes, connect them with international opportunities, sponsorships, and media partnerships.</p>
+      <p>Our current celebrity is Novak Djokovic — one of the greatest tennis players in history. Throughout this presentation, each member of our team will explain the different sections of our website.</p>
+      <p>Let me now pass the word to Diego, our Marketing Manager."</p>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="speaker diego">Diego — Marketing Manager</span>
+    <div class="script-text">
+      <p>"Thank you, Kevin. My name is Diego Lizarraga, and I am the Marketing Manager.</p>
+      <p>On our website, you can find the contact information for our company. You can reach us by email at contact@globalchampionreps.com, by phone at +44 20 7946 0857, or on Instagram and Facebook.</p>
+      <p>In the Previous Clients section, you can see that we have already worked with important athletes and brands. Our previous clients include Alexander Zverev, Adidas, the London Elite Sports Summit, the NextGen Tennis Development Program, and the Elite Performance Sports Camp.</p>
+      <p>We are very proud of these collaborations because they show that we are a professional and reliable agency. Our marketing strategy focuses on increasing our visibility through social media and building strong brand partnerships.</p>
+      <p>Now, I will pass the word to Esmeralda, our Public Relations Manager."</p>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="speaker esme">Esmeralda — Public Relations Manager</span>
+    <div class="script-text">
+      <p>"Thank you, Diego. My name is Esmeralda Valentina Olvera Sánchez, and I am the Public Relations Manager.</p>
+      <p>In the Celebrity section of our website, you can read about our current athlete — Novak Djokovic. Djokovic is a professional tennis player from Serbia. He was born on May 22, 1987, in Belgrade. He has won 24 Grand Slam titles, including the Australian Open, Wimbledon, the French Open, and the US Open.</p>
+      <p>He is known for his exceptional physical endurance, flexibility, and mental strength. These qualities have made him one of the most dominant athletes in modern tennis.</p>
+      <p>In the Guidelines section, we explain how to communicate with the celebrity. All requests must be submitted at least two weeks in advance. All media appearances must follow contractual agreements, and all personal contact must go through our agency. This protects both the athlete and our partners.</p>
+      <p>Thank you. Now I'll hand it over to Johanna."</p>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="speaker johanna">Johanna — Social Media Manager</span>
+    <div class="script-text">
+      <p>"Thank you, Esmeralda. My name is Johanna Ramirez Hernandez, and I am the Social Media Manager.</p>
+      <p>In the Our Team section, you can find a profile for each member of our staff. We have five team members: Kevin, the General Manager; Diego, the Marketing Manager; Esmeralda, the Public Relations Manager; myself as Social Media Manager; and José Ricardo, the Finance Manager. Each profile includes a photo, our role, and our contact email.</p>
+      <p>I was also responsible for the Website Improvement Report. In that report, we identified problems with the old website — it was outdated, and important information was hard to find. The new website is modern, clean, and fully responsive for mobile devices. It includes all the sections required, and the design is attractive and easy to navigate.</p>
+      <p>I am very happy with how the final webpage looks. It truly represents our company in a professional way.</p>
+      <p>Now, José Ricardo will present the graph, the training program, and the conclusion."</p>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="speaker jose">José Ricardo — Finance Manager</span>
+    <div class="script-text">
+      <p>"Thank you, Johanna. My name is José Ricardo Vera Juárez, and I am the Finance Manager.</p>
+      <p>Let me start with the Statistics Graph. This line graph illustrates the upward trend of Novak Djokovic's Grand Slam titles from 2008 to 2026.</p>
+      <p>At the beginning, from 2008 to 2010, the number of titles remained steady. There was a plateau in his Grand Slam count. However, in 2011 and again in 2015, there was a sharp rise in trophies. His success clearly peaked during these years. In 2017, a slight dip in performance occurred due to injuries. But from 2018 to 2023, the graph shows a strong upward trend with steady growth. In the final years, from 2024 to 2026, the figures level off at 24 titles. Overall, the graph shows a dramatic upward trajectory over nearly two decades.</p>
+      <p>Now, about our Training Program. Our staff training plan focuses on three key areas: Marketing, Technological Skills, and Customer Service. Each area has a two-week training schedule. By improving these areas, our team will become more professional, efficient, and competitive.</p>
+      <p>To conclude, our agency — Global Champion Reps — has worked hard to create a complete and professional website that represents everything we have learned in this course. We are proud to present this final project and we hope you enjoy it.</p>
+      <p>Thank you very much. We are happy to answer any questions you may have."</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PART 6 ═══════════════ -->
+<div id="part6" class="tab-panel">
+<div class="card">
+  <div class="sub">Part 6</div>
+  <h2>Rubric Checklist ✅</h2>
+  <p>All required elements are present in the final webpage. Each item is confirmed below.</p>
+</div>
+
+<div class="card">
+  <h2 style="margin-bottom:16px;">Content Requirements</h2>
+  <div class="checklist">
+    <div class="check-item"><div class="check-box">✓</div> Company name: Global Champion Reps <span class="loc">Hero Section</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Logo (circular navy/gold GCR logo) <span class="loc">Hero Section</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Slogan: "Next Level Players" <span class="loc">Hero Section</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Company contact information (email, phone, location, social media) <span class="loc">Contact Bar</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Previous clients (5 listed with descriptions) <span class="loc">Section 3</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Staff profiles — 5 members <span class="loc">Section 4 — Our Team</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Staff photos / placeholders for each member <span class="loc">Section 4</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Role of each staff member <span class="loc">Section 4</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Contact email for each staff member <span class="loc">Section 4</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Celebrity biography — Novak Djokovic <span class="loc">Section 5</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Statistics graph (Djokovic Grand Slam titles 2008–2026) <span class="loc">Section 6</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Guidelines to liaise with the celebrity (5 guidelines) <span class="loc">Section 7</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Company vision <span class="loc">Section 8</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Company mission <span class="loc">Section 8</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Company values / ethics (5 values) <span class="loc">Section 8</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Email (Week 5) — formal email from agency <span class="loc">Section 9</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Letter (Week 9) — letter to Novak Djokovic about Bali trip <span class="loc">Section 10</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Training program — 3 areas with description <span class="loc">Section 11</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Training schedule — 6-week table <span class="loc">Section 11</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Graph with analysis vocabulary <span class="loc">Section 6</span></div>
+    <div class="check-item"><div class="check-box">✓</div> Website improvement report (5 points) <span class="loc">Section 12</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-bottom:16px;">Presentation & Language Requirements</h2>
+  <div class="checklist">
+    <div class="check-item"><div class="check-box">✓</div> Creativity and visual appeal — professional sports agency design</div>
+    <div class="check-item"><div class="check-box">✓</div> Speaking timing — script estimated 6–7 minutes (within 5–8 min range)</div>
+    <div class="check-item"><div class="check-box">✓</div> Graph vocabulary: <em>upward trend, plateau, sharp rise, slight dip, peak, level off, steady growth</em></div>
+    <div class="check-item"><div class="check-box">✓</div> Grammar — B1 level, correct and natural English throughout</div>
+    <div class="check-item"><div class="check-box">✓</div> All 5 team members participate in the script</div>
+    <div class="check-item"><div class="check-box">✓</div> Conclusion and Q&A closing included</div>
+    <div class="check-item"><div class="check-box">✓</div> Vocabulary from the course used throughout</div>
+    <div class="check-item"><div class="check-box">✓</div> Passive voice used in training/report sections</div>
+  </div>
+</div>
+
+<div class="card" style="background:var(--navy);color:#fff;">
+  <h2 style="color:var(--gold);margin-bottom:8px;">✅ ALL REQUIREMENTS SATISFIED</h2>
+  <p style="color:rgba(255,255,255,0.75);">This project includes every required element from the rubric. The webpage is complete, professional, and ready for final presentation.</p>
+  <p style="color:rgba(255,255,255,0.75);margin-top:8px;">English V · Group 702 · Global Champion Reps · Next Level Players 🏆</p>
+</div>
+</div>
+
+</div><!-- end tab panels -->
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
